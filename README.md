@@ -1,6 +1,4 @@
-# Catatan Pengeluaran Harian
-
-NIM: 535250106
+# Expense Tracker (Tracking pengeluaran)
 
 Website aplikasi pencatat pengeluaran harian. User dapat menambahkan, melihat, mengedit, menghapus, dan memfilter data transaksi berdasarkan kategori
 
@@ -47,7 +45,7 @@ Filter kategori menampilkan semua transaksi atau hanya transaksi dengan kategori
 
 ### Grafik pengeluaran
 
-Fungsi `tubiao()` menghitung total nominal untuk setiap kategori dan menampilkannya dalam satu bar bertumpuk. Grafik juga diperbarui sesuai kategori yang sedang dipilih pada filter.
+Fungsi `tubiao()` menghitung total nominal untuk setiap kategori dan ada chart dalam bentuk bar (grafik). Grafik juga diperbarui sesuai kategori yang sedang dipilih pada filter
 
 ### Edit & hapus pengeluaran
 
@@ -60,5 +58,5 @@ Tombol Hapus menampilkan dialog konfirmasi. Jika dikonfirmasi, transaksi dihapus
 Buka file `index.html` di browser. Tidak perlu ada install sesuatu atau server khusus untuk buka filenya
 
 ## Catatan kecil
-> Data hanya tersimpan pada browser dan device yang digunakan
-> Pengecekan untuk memblokir angka minus pada kolom nominal masih belum diterapkan secara menyeluruh
+> - Data hanya tersimpan pada browser dan device yang digunakan.
+> - Pengecekan untuk memblokir angka minus pada kolom nominal masih belum diterapkan secara menyeluruh
