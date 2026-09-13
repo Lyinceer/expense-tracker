@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>535250106</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="app-header">
+        <h1>Catatan pengeluaran harian</h1>
+    </header>
+
+    <main class="container">
+
+        <section class="card input-card">
+            <h2>Tambah pengeluaran</h2>
+            <form id="entry-form" onsubmit="return false;">
+                <div class="field">
+                    <label for="exp-title">Keterangan</label>
+                    <input type="text" id="exp-title" placeholder="Contoh: Makan siang">
+                </div>
+                <div class="field">
+                    <label for="exp-cost">Nominal (Rp)</label>
+                    <input type="number" id="exp-cost" placeholder="0" min="500" step="500">
+                </div>
+                <div class="field">
+                    <label for="exp-tag">Kategori</label>
+                    <select id="exp-tag">
+                        <option value="" disabled selected>Pilih kategori</option>
+                        <option value="Makanan">Makanan</option>
+                        <option value="Transportasi">Transportasi</option>
+                        <option value="Belanja">Belanja</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="exp-date">Tanggal</label>
+                    <input type="date" id="exp-date">
+                </div>
+                <button type="button" id="save-btn" disabled>Simpan Transaksi</button>
+            </form>
+        </section>
+
+        <section class="card display-card">
+            <div class="summary-bar">
+                <div class="summary-box">
+                    <span class="summary-label">Total Transaksi</span>
+                    <span class="summary-val" id="count-display">0</span>
+                </div>
+                <div class="summary-box">
+                    <span class="summary-label">Total Nominal</span>
+                    <span class="summary-val" id="sum-display">Rp 0</span>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <canvas id="expense-chart" aria-label="Grafik pengeluaran berdasarkan kategori"></canvas>
+            </div>
+
+            <div class="filter-row">
+                <label for="filter-tag">Filter Kategori:</label>
+                <select id="filter-tag">
+                    <option value="All">Semua</option>
+                    <option value="Makanan">Makanan</option>
+                    <option value="Transportasi">Transportasi</option>
+                    <option value="Belanja">Belanja</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Keterangan</th>
+                            <th>Kategori</th>
+                            <th>Tanggal</th>
+                            <th>Nominal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="delete-overlay" class="overlay">
+        <div class="dialog">
+            <h3>Hapus Catatan</h3>
+            <p>Apakah Anda yakin ingin menghapus data pengeluaran ini?</p>
+            <div class="dialog-actions">
+                <button id="cancel-del-btn" class="btn-secondary">Batal</button>
+                <button id="confirm-del-btn" class="btn-danger">Ya, Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-overlay" class="overlay">
+        <div class="dialog">
+            <h3>Edit pengeluaran</h3>
+            <div class="field">
+                <label for="edit-title">Keterangan</label>
+                <input type="text" id="edit-title">
+            </div>
+            <div class="field">
+                <label for="edit-cost">Nominal (Rp)</label>
+                <input type="number" id="edit-cost" min="500" step="500">
+            </div>
+            <div class="field">
+                <label for="edit-tag">Kategori</label>
+                <select id="edit-tag">
+                    <option value="Makanan">Makanan</option>
+                    <option value="Transportasi">Transportasi</option>
+                    <option value="Belanja">Belanja</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="edit-date">Tanggal</label>
+                <input type="date" id="edit-date">
+            </div>
+            <div class="dialog-actions">
+                <button id="cancel-edit-btn" class="btn-secondary">Batal</button>
+                <button id="confirm-edit-btn" class="btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
